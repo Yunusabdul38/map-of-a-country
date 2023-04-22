@@ -2,9 +2,8 @@ const inputs = document.querySelector(".inputs");
 const countryName = document.querySelector("h3");
 const countryLogo = document.querySelector("img");
 const inputValue = document.querySelector("input");
-const mapContainer = document.querySelector(".map");
+//const mapContainer = document.querySelector(".map");
 const btn = document.querySelector(".btn");
-let map;
 const container = document.querySelector(".container");
 const html = ` <section class="map" id="map"></section>`;
 container.insertAdjacentHTML("beforeend", html);
@@ -77,8 +76,8 @@ async function country(name, style=0) {
     L.marker([lat, lng]).addTo(map).bindPopup(`Capital of ${name}`).openPopup();
   } catch (err) {
     console.log(err);
-    console.log(mapContainer)
-    mapContainer.insertAdjacentText("beforeend", err);
+    //console.log(mapContainer)
+    alert(err);
   }
 }
 inputValue.value = "";
