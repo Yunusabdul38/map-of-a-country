@@ -48,13 +48,13 @@ async function country(name, style=0) {
   try {
     
     const request = await fetch(`https:restcountries.com/v3.1/name/${name}`);
+    container.lastChild.remove();
+    container.insertAdjacentHTML("beforeend", html);
     if (!request.ok) {
       throw new Error(
         `(${request.status}) Unable to display map with the country name ${name} check the name and try again`
       );
     }
-    container.lastChild.remove();
-    container.insertAdjacentHTML("beforeend", html);
     const [response] = await request.json();
     const { latlng } = await response.capitalInfo;
     const [lat, lng] = await latlng;
@@ -77,7 +77,7 @@ async function country(name, style=0) {
     L.marker([lat, lng]).addTo(map).bindPopup(`Capital of ${name}`).openPopup();
   } catch (err) {
     console.log(err);
-    
+    console.log(mapContainer)
     mapContainer.insertAdjacentText("beforeend", err);
   }
 }
