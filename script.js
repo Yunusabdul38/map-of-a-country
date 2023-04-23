@@ -42,6 +42,7 @@ const map_style = [
 ];
 let styleNumber
 //console.log(v[2][1]);
+const request = fetch(`https:restcountries.com/v3.1/name/${"nigeria"}`).then(res=>console.log(res));
 
 async function country(name, style=0) {
   try {
@@ -49,6 +50,7 @@ async function country(name, style=0) {
     const request = await fetch(`https:restcountries.com/v3.1/name/${name}`);
     container.lastChild.remove();
     container.insertAdjacentHTML("beforeend", html);
+    console.log(request)
     if (!request.ok) {
       throw new Error(
         `(${request.status}) Unable to display map with the country name ${name} check the name and try again`
