@@ -4,15 +4,17 @@
   box-sizing: border-box;
 }
 body {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 500;
   color: hsl(0, 0%, 100%);
   background-color: hsl(207, 26%, 17%);
   display: flex;
   justify-content: center;
   align-items: center;
-  // height: 100vh;
   .container {
     width: 90%;
-
+    // for preloder
+    filter: blur(5px);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -20,7 +22,6 @@ body {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      //justify-content: space-between;
       gap: 1em;
       .inputs_value {
         display: flex;
@@ -54,23 +55,23 @@ body {
       }
       .inputs_img {
         img {
-          border-radius: .3em;
+          border-radius: 0.3em;
           width: 100%;
           height: 200px;
           object-fit: cover;
         }
-        h3{
+        h3 {
           text-transform: capitalize;
         }
       }
-      .map_style{
+      .map_style {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        .box{
-          margin-top: .4em;
-          padding: .7em 2em;
-          border-radius: .3em;
+        .box {
+          margin-top: 0.4em;
+          padding: 0.7em 2em;
+          border-radius: 0.3em;
           text-transform: capitalize;
           box-shadow: 0px 1px 4px hsl(355, 26%, 17%);
           background-color: hsl(209, 23%, 22%);
@@ -81,43 +82,45 @@ body {
       width: 100%;
       height: 500px;
       margin-top: 2em;
-      border-radius: .3em;
+      border-radius: 0.3em;
       box-shadow: 0px 1px 4px hsl(355, 26%, 17%);
     }
   }
+  .preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
-@media screen and (min-width: 750px){
-  body{
+@media screen and (min-width: 750px) {
+  body {
     height: 100vh;
-    font-family: sans-serif;
-    .container{
-      // margin: 50px 0;
+    .container {
       flex-direction: row;
       text-align: center;
       justify-content: space-between;
-      .inputs{
-        //border: 1px solid green;
+      .inputs {
         width: 40%;
       }
-      .inputs_value{
+      .inputs_value {
         flex-direction: row !important;
-        input{
+        input {
           width: 65%;
         }
-        button{
+        button {
           width: 30%;
         }
       }
-      img{
+      img {
         max-width: 350px;
         margin: 0 auto;
       }
-      .map{
+      .map {
         margin-top: 0;
         width: 60%;
         text-align: center;
       }
     }
   }
-  
 }
